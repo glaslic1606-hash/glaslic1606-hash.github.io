@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kova Studios: videos y contenido para negocios de Caracas.">
+<meta property="og:title" content="Kova Studios">
+<meta property="og:description" content="Videos y contenido para negocios de Caracas.">
+<meta property="og:image" content="m/oha-lujo.jpg">
+<title>Kova Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap">
+<style>
+body { margin: 0; }
+img { max-width: 100%; }
+
+/* Layout: pantalla oscura tipo sala de proyección; los videos verticales son las piezas; oro como hilo conductor. */
+:root {
+  --bg: #120E10;
+  --panel: #1C1619;
+  --line: #3A2F33;
+  --fg: #F4ECE6;
+  --muted: #B3A49C;
+  --gold: #D2AE5C;
+  --rose: #E7B9B1;
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-label: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+  --f-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; text-wrap: balance; margin: 0; }
+.eyebrow { font-family: var(--f-label); font-weight: 700; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+p { margin: 0; }
+a { color: var(--gold); }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* portada */
+.hero { padding-block: 56px 40px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 7.2vw, 92px); line-height: .98; margin-top: 18px; }
+.hero h1 em { color: var(--gold); }
+.hero .lead { margin-top: 22px; max-width: 34em; color: var(--muted); font-size: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.chip { font-family: var(--f-label); font-size: 12px; font-weight: 700; letter-spacing: .08em; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); }
+.phone { justify-self: center; width: min(320px, 100%); aspect-ratio: 9 / 16; border-radius: 34px; padding: 10px; background: #050405; border: 1px solid var(--line); box-shadow: 0 40px 90px rgba(0,0,0,.6), 0 0 0 6px #241c20; max-width: 100%; }
+.phone video { width: 100%; height: 100%; object-fit: cover; border-radius: 26px; display: block; background: #000; }
+
+/* secciones */
+section { padding-block: 56px; border-top: 1px solid var(--line); }
+.head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; margin-bottom: 28px; }
+.head h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.02; margin-top: 10px; }
+.head p { color: var(--muted); max-width: 30em; }
+
+/* negocios */
+.negocio { padding-block: 28px; border-top: 1px dashed var(--line); }
+.negocio:first-of-type { border-top: 0; padding-top: 0; }
+.neg-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 16px; }
+.neg-top h3 { font-size: 34px; font-style: italic; }
+.neg-top .meta { font-family: var(--f-label); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.neg-top .nota { flex-basis: 100%; font-size: 13px; color: var(--muted); }
+.fila { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-color: var(--line) transparent; }
+.vid { flex: 0 0 auto; width: 200px; scroll-snap-align: start; }
+.vid video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 16px; background: #000; display: block; border: 1px solid var(--line); }
+.vid .cap { margin-top: 8px; font-family: var(--f-label); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--fg); }
+.vid .cap span { color: var(--gold); }
+.vid.largo { width: 236px; }
+
+/* estilos */
+.estilos { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 22px 16px; }
+.estilo video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 14px; background: #000; display: block; border: 1px solid var(--line); }
+.estilo h3 { font-size: 26px; font-style: italic; margin-top: 10px; }
+.estilo p { font-size: 14px; color: var(--muted); }
+.fav { font-family: var(--f-label); font-size: 10px; font-weight: 800; letter-spacing: .16em; color: var(--bg); background: var(--gold); padding: 3px 8px; border-radius: 999px; vertical-align: middle; margin-left: 6px; }
+
+/* publicaciones */
+.pubs .fila img { flex: 0 0 auto; width: 210px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); scroll-snap-align: start; max-width: 100%; }
+
+/* cómo trabajo */
+.pasos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.paso { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 26px; }
+.paso .n { font-family: var(--f-display); font-size: 64px; line-height: 1; color: var(--gold); }
+.paso h3 { font-size: 28px; margin-top: 10px; }
+.paso p { margin-top: 8px; color: var(--muted); }
+.garantias { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; color: var(--rose); font-size: 15px; }
+.garantias span::before { content: "✓ "; color: var(--gold); }
+footer { padding-block: 40px 56px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 14px; }
+footer b { font-family: var(--f-display); font-weight: 400; font-style: italic; font-size: 26px; color: var(--fg); }
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 36px; }
+  .phone { width: min(280px, 80vw); }
+  .pasos { grid-template-columns: 1fr; }
+  .vid { width: 168px; } .vid.largo { width: 190px; }
+  .pubs .fila img { width: 170px; }
+}
+@media (prefers-reduced-motion: reduce) { .phone video { display: none; } .phone { background: #050405 url("m/oha-lujo.jpg") center/cover; } }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Kova Studios · Videos para negocios · Caracas</div>
+      <h1>Tu negocio, contado en <em>un video</em>.</h1>
+      <p class="lead">Hago videos verticales con las fotos de tu negocio. Muestran lo mejor que haces, con música y diseño cuidado, y terminan con tu dirección y horario para que la gente sepa cómo llegar.</p>
+      <div class="chips">
+        <span class="chip">Hecho con tus fotos</span>
+        <span class="chip">Música incluida</span>
+        <span class="chip">Tu ubicación al final</span>
+        <span class="chip">Listo para Instagram</span>
+      </div>
+    </div>
+    <div class="phone"><video src="m/oha-lujo.mp4" poster="m/oha-lujo.jpg" autoplay muted loop playsinline aria-label="Video de ejemplo: Ohana Beauty Bar, estilo lujo"></video></div>
+  </header>
+
+  <section id="muestras">
+    <div class="head">
+      <div><div class="eyebrow">Muestras</div><h2>Negocios reales de Caracas</h2></div>
+      <p>Cada muestra la preparé con fotos públicas del Instagram de cada negocio. Toca un video para verlo con sonido.</p>
+    </div>
+    <div id="negocios"></div>
+  </section>
+
+  <section id="estilos">
+    <div class="head">
+      <div><div class="eyebrow">Estilos</div><h2>Escoge cómo se ve el tuyo</h2></div>
+      <p>El mismo restaurante en 11 estilos distintos. Cada negocio escoge el que va con su marca.</p>
+    </div>
+    <div class="estilos" id="lista-estilos"></div>
+  </section>
+
+  <section id="publicaciones" class="pubs">
+    <div class="head">
+      <div><div class="eyebrow">Publicaciones</div><h2>Carruseles y piezas para el feed</h2></div>
+      <p>Además de videos: carruseles de 6 imágenes y publicaciones con reseñas reales de Google, productos y ubicación.</p>
+    </div>
+    <div id="lista-pubs"></div>
+  </section>
+
+  <section id="como">
+    <div class="head">
+      <div><div class="eyebrow">Cómo trabajo</div><h2>Simple y sin compromiso</h2></div>
+    </div>
+    <div class="pasos">
+      <div class="paso"><div class="n">1</div><h3>Te hago una muestra</h3><p>Con las fotos de tu negocio, gratis, para que veas cómo quedaría antes de decidir.</p></div>
+      <div class="paso"><div class="n">2</div><h3>Escoges el estilo</h3><p>Revista, cine, lujo o el que vaya con tu marca. Tú decides cuántos videos a la semana.</p></div>
+      <div class="paso"><div class="n">3</div><h3>Recibes tus videos</h3><p>Listos para publicar, con música, el texto para el post y tu ubicación al final.</p></div>
+    </div>
+    <div class="garantias">
+      <span>No necesito tu contraseña</span>
+      <span>Pagas semana a semana</span>
+      <span>Paras cuando quieras</span>
+    </div>
+  </section>
+
+  <footer>
+    <div><b>Kova Studios</b><br>Videos y contenido para negocios de Caracas</div>
+    <div>Todas las muestras usan fotos públicas de cada negocio.</div>
+  </footer>
+</div>
+
+<script>
+const NEGOCIOS = [
+  { n: 'Ohana Beauty Bar', meta: 'Salón de belleza · Prados del Este',
+    v: [['oha-revista', 'Revista'], ['oha-lujo', 'Lujo'], ['oha-cine', 'Cine'], ['oha-galeria', 'Galería']] },
+  { n: 'Restaurant Altamar', meta: 'Marisquería · Altamira',
+    v: [['alt-revista', 'Revista'], ['alt-cine', 'Cine'], ['alt-lujo', 'Lujo']] },
+  { n: 'Aprile', meta: 'Cocina italiana · Altamira', v: [['apr-revista', 'Revista']] },
+  { n: 'Panadería Los Nietos', meta: 'Panadería · Altamira', v: [['nie-revista', 'Revista'], ['nie-collage', 'Collage']] },
+  { n: "Trajes D'Urso", meta: 'Tienda de trajes · Chacao', v: [['dur-revista', 'Revista'], ['dur-cine', 'Cine']] },
+  { n: 'Leisther Style', meta: 'Peluquería · Chacao', v: [['lei-revista', 'Revista'], ['lei-cine', 'Cine']] },
+  { n: 'Tiendas Trilax', meta: 'Tienda de ropa · Chacao', v: [['tri-revista', 'Revista']] },
+];
+const ESTILOS = [
+  ['revista', 'Revista', 'Letras gigantes con la foto adentro, como portada de revista.', 1],
+  ['cine', 'Cine', 'Fondo oscuro con luces y fotos que pasan como en una película.', 1],
+  ['lujo', 'Lujo', 'Arcos elegantes y líneas doradas. El más fino.', 1],
+  ['galeria', 'Galería', 'Tus fotos en cuadros de museo, con focos.'],
+  ['libro', 'Menú de lujo', 'Páginas que pasan, como una carta elegante.'],
+  ['creditos', 'Película', 'Franjas negras, grano de cine y créditos.'],
+  ['persianas', 'Persianas', 'La foto aparece en tiras que giran.'],
+  ['collage', 'Collage', 'Polaroids con cinta y notas escritas a mano.'],
+  ['mosaico', 'Mosaico', 'Cuadros que giran y arman la foto.'],
+  ['neon', 'Neón', 'Letreros que se encienden, para negocios de noche.'],
+  ['pop', 'Pop', 'Colores fuertes y movimiento alegre.'],
+];
+const PUBS = [
+  ['altamar', 'Restaurant Altamar'], ['aprile', 'Aprile'], ['los-nietos', 'Panadería Los Nietos'],
+  ['la-joya', 'Panadería La Joya'], ['trajes-durso', "Trajes D'Urso"], ['leisther-style', 'Leisther Style'], ['trilax', 'Tiendas Trilax'],
+];
+const video = (id, label) => `<video src="m/${id}.mp4" poster="m/${id}.jpg" controls preload="none" playsinline aria-label="${label}"></video>`;
+
+document.getElementById('negocios').innerHTML = NEGOCIOS.map((g) => `
+  <div class="negocio">
+    <div class="neg-top"><h3>${g.n}</h3><span class="meta">${g.meta}</span>${g.nota ? `<span class="nota">${g.nota}</span>` : ''}</div>
+    <div class="fila">${g.v.map(([id, est, largo]) => `
+      <figure class="vid${largo ? ' largo' : ''}" style="margin:0">${video(id, `${g.n}, estilo ${est}`)}
+        <figcaption class="cap">${est}${largo ? ' <span>· versión larga</span>' : ''}</figcaption></figure>`).join('')}</div>
+  </div>`).join('');
+
+document.getElementById('lista-estilos').innerHTML = ESTILOS.map(([id, nom, desc, fav]) => `
+  <div class="estilo">${video('alt-' + id, 'Estilo ' + nom)}
+    <h3>${nom}${fav ? '<span class="fav">FAVORITO</span>' : ''}</h3><p>${desc}</p></div>`).join('');
+
+document.getElementById('lista-pubs').innerHTML = PUBS.map(([id, nom]) => `
+  <div class="negocio">
+    <div class="neg-top"><h3>${nom}</h3><span class="meta">Carrusel + 3 publicaciones</span></div>
+    <div class="fila">${[1, 2, 3, 4, 5, 6].map((i) => `<img src="m/${id}-c${i}.jpg" alt="${nom}, carrusel lámina ${i}" loading="lazy">`).join('')}
+      ${['1-resena', '2-producto', '3-llamado'].map((k) => `<img src="m/${id}-${k}.jpg" alt="${nom}, publicación ${k.slice(2)}" loading="lazy">`).join('')}</div>
+  </div>`).join('');
+
+// que solo suene un video a la vez
+document.addEventListener('play', (e) => {
+  document.querySelectorAll('video').forEach((v) => { if (v !== e.target && !v.muted) v.pause(); });
+}, true);
+</script>
+
+</body>
+</html>
